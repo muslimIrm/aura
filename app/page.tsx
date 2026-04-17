@@ -1,65 +1,52 @@
-import Image from "next/image";
-
+import { AuroraBackgroundDemo } from "./background";
+import { TabsDemo } from "./components/tabs/tabs";
+import { FaTelegramPlane } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 export default function Home() {
+  const conactInfo = [
+    {
+      name: "Telegram",
+      icon: <FaTelegramPlane />,
+      link: "https://t.me/I1_Muslim"
+    },
+    {
+      name: "Instagram",
+      icon: <FaInstagram />,
+      link: "https://www.instagram.com/i1_muslim/"
+    },
+    {
+      name: "Github",
+      icon: <FaGithub />,
+      link: "https://github.com/I1-Muslim"
+    },
+    {
+      name: "LinkedIn",
+      icon: <FaLinkedin/>,
+      link: "https://www.linkedin.com/in/muslim-ibrahim-1aabbb1b0/"
+    }
+
+  ];
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
+    <div className=" relative w-screen h-screen flex items-center overflow-hidden justify-center flex-col">
+      <h1 className="font-sans font-bold text-2xl">Welcome in AURA</h1>
+      <TabsDemo />
+      <footer className=" absolute bottom-8 left-1/2 -translate-x-1/2 text-sm text-gray-500">
+        Made with ❤️ by <span className="font-bold">MUSLIM</span>
+        <div className="flex items-center justify-center gap-2">
+          {conactInfo.map((info, index) => (
             <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              key={index}
+              href={info.link}
+              target="_blank"
+              className="flex hover:scale-110 text-lg items-center duration-300 gap-2 text-primary font-medium mt-2"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              {info.icon}
+            </a>
+          ))}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </footer>
     </div>
   );
 }
