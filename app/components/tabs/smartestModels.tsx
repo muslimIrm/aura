@@ -3,15 +3,9 @@ import {
 } from "@/components/ui/tabs"
 import { ButtonDemo } from "../button"
 import { Suspense } from "react"
-import { Button } from "@/components/ui/button";
-import { revalidatePath } from "next/cache";
 export const revalidate = 3600;
 export default async function SmartestModels() {
     let models = [];
-    async function handleReload() {
-        "use server";
-        revalidatePath("/")
-    }
     try {
 
         const data = await fetch('https://api.wulong.dev/arena-ai-leaderboards/v1/leaderboard?name=text')

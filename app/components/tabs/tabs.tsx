@@ -17,7 +17,7 @@ import SmartestModels from "./smartestModels"
 
 export async function TabsDemo() {
     return (
-        <Tabs defaultValue="all" className="w-[500px]">
+        <Tabs defaultValue="all" className="w-125 min-w-50">
             <TabsList className=" w-full">
                 <TabsTrigger value="all" className="text-lg">All Models</TabsTrigger>
                 <TabsTrigger value="smartest" className="text-lg">Smartest Model</TabsTrigger>

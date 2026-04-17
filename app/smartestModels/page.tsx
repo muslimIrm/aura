@@ -6,7 +6,7 @@ const Page = async ({ searchParams }: { searchParams: Promise<{ search?: string 
 
         <div className="w-screen">
             <Container className="flex items-center py-22 gap-2 justify-center h-screen">
-                <h1 className="text-4xl font-bold text-slate-700">Smartest Models</h1>
+                <h1 className="text-4xl font-bold mb-4 text-slate-700">Smartest Models</h1>
                 <SmartestModels searchParams={searchParams} />
             </Container>
         </div>

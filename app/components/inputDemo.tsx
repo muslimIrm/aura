@@ -9,16 +9,9 @@ export function PlaceholdersAndVanishInputDemo({ path }: { path: string }) {
     "Anthropic",
     "Meta",
     "Microsoft",
-    "Mistral AI",
-    "NVIDIA",
-    "DeepMind",
-    "Perplexity",
-    "Stability AI",
-    "Cohere",
-    "xAI",
-    "Runway",
-    "Hugging Face",
-    "Groq",
+    "GPT",
+    "Gemini",
+    "Claude"
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -4,15 +4,9 @@ import {
 } from "@/components/ui/tabs"
 import { Suspense } from "react"
 export const revalidate = 3600;
-import { revalidatePath } from "next/cache"; 
-import { Button } from "@/components/ui/button";
 import { ButtonDemo } from "../button";
 export default async function AllModels() {
     let models = [];
-    async function handleReload() {
-        "use server";
-        revalidatePath("/"); 
-    }
     try {
         const response = await fetch('https://openrouter.ai/api/v1/models');
 

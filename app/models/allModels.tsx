@@ -4,6 +4,7 @@ export const revalidate = 3600;
 import AllModelsMap from "./allModelsMap";
 import { AllModel } from "../types/model";
 import Search from "../components/search";
+
 export default async function AllModels({searchParams}: {searchParams: Promise<{ search?: string }>, search?: string}) {
     const {search} = await searchParams;
     let models: AllModel[] = [];
