@@ -4,6 +4,7 @@ import { FaTelegramPlane } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import Container from "./components/container";
 export default function Home() {
   const conactInfo = [
     {
@@ -23,30 +24,34 @@ export default function Home() {
     },
     {
       name: "LinkedIn",
-      icon: <FaLinkedin/>,
+      icon: <FaLinkedin />,
       link: "https://www.linkedin.com/in/muslim-ibrahim-1aabbb1b0/"
     }
 
   ];
   return (
     <div className=" relative w-screen h-screen flex items-center overflow-hidden justify-center flex-col">
-      <h1 className="font-sans font-bold text-2xl">Welcome in AURA</h1>
-      <TabsDemo />
-      <footer className=" absolute bottom-8 left-1/2 -translate-x-1/2 text-sm text-gray-500">
-        Made with ❤️ by <span className="font-bold">MUSLIM</span>
-        <div className="flex items-center justify-center gap-2">
-          {conactInfo.map((info, index) => (
-            <a
-              key={index}
-              href={info.link}
-              target="_blank"
-              className="flex hover:scale-110 text-lg items-center duration-300 gap-2 text-primary font-medium mt-2"
-            >
-              {info.icon}
-            </a>
-          ))}
-        </div>
-      </footer>
+      <Container className="flex items-center justify-center flex-col">
+
+        <h1 className="font-sans font-bold mb-2 text-center text-2xl">Welcome in AURA</h1>
+
+        <TabsDemo />
+        <footer className=" absolute bottom-8 left-1/2 -translate-x-1/2 text-sm text-gray-500">
+          Made with ❤️ by <span className="font-bold">MUSLIM</span>
+          <div className="flex items-center justify-center gap-2">
+            {conactInfo.map((info, index) => (
+              <a
+                key={index}
+                href={info.link}
+                target="_blank"
+                className="flex hover:scale-110 text-lg items-center duration-300 gap-2 text-primary font-medium mt-2"
+              >
+                {info.icon}
+              </a>
+            ))}
+          </div>
+        </footer>
+      </Container>
     </div>
   );
 }
