@@ -1,15 +1,15 @@
 
 import { Suspense } from "react"
 import SmartestModelsMap from "./smartestModelsMap";
-export const revalidate = 3600;
 import { SmrtestModel } from "../types/model";
 import Search from "../components/search";
+import { Spinner } from "@/components/ui/spinner";
 export default async function SmartestModels({searchParams}: {searchParams: Promise<{search?: string}>}) {
     const {search} = await searchParams
     let models: SmrtestModel[] = [];
     try {
 
-        const data = await fetch('https://api.wulong.dev/arena-ai-leaderboards/v1/leaderboard?name=text')
+        const data = await fetch('https://api.wulong.dev/arena-ai-leaderboards/v1/leaderboard?name=text', {next: {revalidate: 3600}})
         if (!data.ok) {
             throw new Error(`HTTP error! status: ${data.status}`);
         }
@@ -25,7 +25,7 @@ export default async function SmartestModels({searchParams}: {searchParams: Prom
     }
 
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Spinner/>}>
 
             <div className="flex flex-col min-w-full gap-2 max-h-full overflow-auto">
                 <Search searchParams={searchParams} path="smartestModels"/>

@@ -1,34 +1,8 @@
-import { AuroraBackgroundDemo } from "./background";
 import { TabsDemo } from "./components/tabs/tabs";
-import { FaTelegramPlane } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
 import Container from "./components/container";
+import Footer from "./components/footer";
 export default function Home() {
-  const conactInfo = [
-    {
-      name: "Telegram",
-      icon: <FaTelegramPlane />,
-      link: "https://t.me/I1_Muslim"
-    },
-    {
-      name: "Instagram",
-      icon: <FaInstagram />,
-      link: "https://www.instagram.com/i1_muslim/"
-    },
-    {
-      name: "Github",
-      icon: <FaGithub />,
-      link: "https://github.com/I1-Muslim"
-    },
-    {
-      name: "LinkedIn",
-      icon: <FaLinkedin />,
-      link: "https://www.linkedin.com/in/muslim-ibrahim-1aabbb1b0/"
-    }
-
-  ];
+  
   return (
     <div className=" relative w-screen h-screen flex items-center overflow-hidden justify-center flex-col">
       <Container className="flex items-center justify-center flex-col">
@@ -36,21 +10,7 @@ export default function Home() {
         <h1 className="font-sans font-bold mb-2 text-center text-2xl">Welcome in AURA</h1>
 
         <TabsDemo />
-        <footer className=" absolute bottom-8 left-1/2 -translate-x-1/2 text-sm text-gray-500">
-          Made with ❤️ by <span className="font-bold">MUSLIM</span>
-          <div className="flex items-center justify-center gap-2">
-            {conactInfo.map((info, index) => (
-              <a
-                key={index}
-                href={info.link}
-                target="_blank"
-                className="flex hover:scale-110 text-lg items-center duration-300 gap-2 text-primary font-medium mt-2"
-              >
-                {info.icon}
-              </a>
-            ))}
-          </div>
-        </footer>
+        <Footer/>
       </Container>
     </div>
   );

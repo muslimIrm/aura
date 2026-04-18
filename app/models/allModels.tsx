@@ -1,15 +1,15 @@
 
 import { Suspense } from "react"
-export const revalidate = 3600;
 import AllModelsMap from "./allModelsMap";
 import { AllModel } from "../types/model";
 import Search from "../components/search";
+import { Spinner } from "@/components/ui/spinner";
 
 export default async function AllModels({searchParams}: {searchParams: Promise<{ search?: string }>, search?: string}) {
     const {search} = await searchParams;
     let models: AllModel[] = [];
     try {
-        const response = await fetch('https://openrouter.ai/api/v1/models');
+        const response = await fetch('https://openrouter.ai/api/v1/models', {next: {revalidate: 3600}});
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -26,11 +26,10 @@ export default async function AllModels({searchParams}: {searchParams: Promise<{
         throw error;    
     }
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Spinner/>}>
 
             <div className="flex flex-col gap-2 max-h-full overflow-auto">
-               
-
+                
                 <Search searchParams={searchParams} path="models"/>
                 {models.length > 0 ? <AllModelsMap models={models} /> : <h1 className="text-xl text-gray-600 font-bold">Not Found {search}</h1>}
 

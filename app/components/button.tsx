@@ -1,12 +1,17 @@
-import { ArrowUpIcon } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import { cn } from "@/lib/utils"
 
-export function ButtonDemo({href, content, className}: {href: string, content: string, className?: string}) {
+export function ButtonDemo({ href, content, className }: { href: string, content: string, className?: string }) {
   return (
-    <Link href={href} className="flex flex-wrap items-center gap-2 md:flex-row">
-      <Button variant="outline" className={className}>{content}</Button>
-    </Link>
+
+
+    <Button variant="outline" className={cn("flex flex-wrap items-center gap-2 md:flex-row", className)} asChild>
+      <Link href={href}>{content}</Link>
+    </Button>
+
+
+
   )
 }

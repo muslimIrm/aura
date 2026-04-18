@@ -49,49 +49,49 @@
 }
 
 @theme inline {
+  /* Aurora: تم التبديل من background-position إلى transform لاستخدام GPU */
   --animate-aurora: aurora 60s linear infinite;
   @keyframes aurora {
-    from {
-      background-position:
-        50% 50%,
-        50% 50%;
-    }
-    to {
-      background-position:
-        350% 50%,
-        350% 50%;
-    }
+    0%   { transform: translateX(0%)   scale(1);    }
+    33%  { transform: translateX(-4%)  scale(1.04); }
+    66%  { transform: translateX(4%)   scale(0.97); }
+    100% { transform: translateX(0%)   scale(1);    }
   }
 }
+
 @theme inline {
-  --animate-first: moveVertical 30s ease infinite;
-  --animate-second: moveInCircle 20s reverse infinite;
-  --animate-third: moveInCircle 40s linear infinite;
-  --animate-fourth: moveHorizontal 40s ease infinite;
-  --animate-fifth: moveInCircle 20s ease infinite;
+  --animate-first:  moveVertical   30s ease    infinite;
+  --animate-second: moveInCircle   20s reverse infinite;
+  --animate-third:  moveInCircle   40s linear  infinite;
+  --animate-fourth: moveHorizontal 40s ease    infinite;
+  --animate-fifth:  moveInCircle   20s ease    infinite;
+}
+
+@keyframes moveVertical {
+  0%   { transform: translateY(-20%); }
+  50%  { transform: translateY(20%);  }
+  100% { transform: translateY(-20%); }
 }
 
 @keyframes moveHorizontal {
-  0% {
-    transform: translateX(-50%) translateY(-10%);
-  }
-  50% {
-    transform: translateX(50%) translateY(10%);
-  }
-  100% {
-    transform: translateX(-50%) translateY(-10%);
-  }
+  0%   { transform: translateX(-50%) translateY(-10%); }
+  50%  { transform: translateX(50%)  translateY(10%);  }
+  100% { transform: translateX(-50%) translateY(-10%); }
 }
 
 @keyframes moveInCircle {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  100% {
-    transform: rotate(360deg);
+  0%   { transform: rotate(0deg);   }
+  50%  { transform: rotate(180deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* إيقاف الأنيميشن للأجهزة الضعيفة أو من يفضل تقليل الحركة */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
 
