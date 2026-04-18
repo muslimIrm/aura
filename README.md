@@ -1,4 +1,79 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
+# 🧠 AI Models Explorer
+
+## فكرة المشروع
+مشروع ويب يهدف إلى عرض نماذج الذكاء الاصطناعي المتوفرة على الإنترنت (معظمها)، مع توفير معلومات تفصيلية لكل نموذج مثل:
+
+- تكلفة الإدخال (Input Cost)
+- تكلفة الإخراج (Output Cost)
+- سعة فهم السياق (Context Window)
+- تصنيف النموذج من حيث الذكاء والأداء
+
+## التقنيات المستخدمة
+تم بناء المشروع باستخدام التقنيات التالية:
+
+- Next.js
+- Tailwind CSS
+- shadcn/ui
+- Aceternity UI (لخلفيات وتصميمات حديثة)
+
+## مصادر البيانات
+
+تم الاعتماد على واجهات API خارجية لجلب البيانات:
+
+- 📌 نماذج الذكاء الاصطناعي:
+  https://openrouter.ai/api/v1/models
+
+- 📌 ترتيب النماذج الأذكى (Leaderboard):
+  https://api.wulong.dev/arena-ai-leaderboards/v1/leaderboard?name=text
+
+## تحسين الأداء
+تم التركيز على تحسين أداء الموقع بشكل كبير، حيث تم الوصول إلى:
+
+- أداء مرتفع على الأجهزة المحمولة
+- تحسين تحميل البيانات وتجربة المستخدم
+- تصميم خفيف وسريع الاستجابة
+
+## الهدف من المشروع
+يهدف المشروع إلى تسهيل مقارنة نماذج الذكاء الاصطناعي وفهم قدراتها بشكل واضح وسريع، مما يساعد المطورين والمهتمين في اختيار النموذج المناسب.
+
+
+## Project Idea
+This project is a web application designed to display various AI models available across the internet (most of them), along with detailed information such as:
+
+- Input cost
+- Output cost
+- Context window capacity
+- Model intelligence and performance ranking
+
+## Tech Stack
+The project is built using modern web technologies:
+
+- Next.js
+- Tailwind CSS
+- shadcn/ui
+- Aceternity UI (for modern backgrounds and UI effects)
+
+## Data Sources
+
+The application relies on external APIs to fetch model data and rankings:
+
+- 📌 AI Models API:
+  https://openrouter.ai/api/v1/models
+
+- 📌 AI Leaderboard (smartest models ranking):
+  https://api.wulong.dev/arena-ai-leaderboards/v1/leaderboard?name=text
+
+## Performance Optimization
+A strong focus was placed on performance optimization, achieving:
+
+- High performance on mobile devices
+- Optimized data fetching and user experience
+- Lightweight and responsive design
+
+## Project Goal
+The goal of this project is to make it easier to compare AI models and understand their capabilities clearly and efficiently, helping developers and users choose the most suitable model.
+
 
 ## Getting Started
 
@@ -15,22 +90,3 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
